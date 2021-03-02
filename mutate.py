@@ -331,10 +331,10 @@ with open(sys.argv[1]) as f:
     source = f.read()
     my_tree = ast.parse( source )
 
-for i in range(int(sys.argv[2])):
+for _ in range(int(sys.argv[2])):
     my_visited_tree = myVisitor()
     my_visited_tree.visit(my_tree)
-    
+
     node_to_mutate = random.randint(1, my_visited_tree.counter)
 
     my_transformed_node = myTransformer(node_to_mutate)

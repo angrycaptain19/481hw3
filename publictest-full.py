@@ -458,8 +458,7 @@ class ProcessTest(unittest.TestCase):
         """We should be able to use a list-like object for choices."""
         def generate_choices():
             choices = ['a', 'Bb', 'CcC']
-            for choice in choices:
-                yield choice
+            yield from choices
         search = 'aaa'
         result = [(value, confidence) for value, confidence in
                   fuzzywuzzy.extract(search, generate_choices())]
